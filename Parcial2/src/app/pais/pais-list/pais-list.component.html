@@ -1,0 +1,30 @@
+
+<div class="container-fluid mt-2 row align-items-start">
+  <div class="col-6">
+   <table class="table table-striped">
+    <thead>
+      <tr class="table-success">
+        <th scope="col">#</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Capital</th>
+        <th scope="col">Año Conformacion</th>
+      </tr>
+      <tr *ngFor="let pais of paises" (click)="onSelected(pais)" class="table-secondary">
+        <td>{{pais.id}}</td>
+        <td>{{pais.name}}</td>
+        <td>{{pais.capital}}</td>
+        <td>{{pais.formation_year}}</td>
+      </tr>
+
+    </thead>
+
+    
+   </table>
+   <p>
+    El país mas antiguo del listado es {{masAntiguo}} y fue conformado en {{masviejo}}
+  </p> 
+  </div>
+  <div class="col" *ngIf="selected" >
+    <app-pais-detail [pais]="selectedPais"></app-pais-detail>
+  </div>
+</div>
